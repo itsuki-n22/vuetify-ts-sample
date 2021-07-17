@@ -1,64 +1,70 @@
 <template>
-  <form novalidate>
-    <div class="form-item">
-      <label for="email">email</label>
-      <input
-        id="email"
-        v-model="email"
-        type="text"
-        autocomplete="off"
-        placeholder="e.g. hoge@domain.com"
-        @focus="resetError">
-      <ul class="validation-errors">
-        <li v-if="!validation.email.format">invalid email format</li>
-        <li v-if="!validation.email.required">empty email</li>
-      </ul>
-    </div>
-    <div class="form-item">
-      <label for="password">password</label>
-      <input
-        id="password"
-        v-model="password"
-        type="password"
-        autocomplete="off"
-        placeholder="e.g. xxxx"
-        @focus="resetError">
-      <ul class="validation-errors">
-        <li v-if="!validation.password.required">empty password</li>
-      </ul>
-    </div>
-    <div class="form-actions">
-      <KbnButton
-        :disabled="disabledLoginAction"
-        @click="handleClick"
-      >
-        ログイン
-      </KbnButton>
-      <p
-        v-if="progress"
-        class="login-progress"
-      >
-        ログイン中...
-      </p>
-      <p 
-        v-if="error"
-        class="login-error"
-      >
-        {{ error }}
-      </p>
-    </div>
-  </form>
+  <v-container class="mt-5">
+    <v-row class="text-center">
+      <v-form novalidate>
+        <div class="form-item">
+          <label for="email">email</label>
+          <v-text-field
+            id="email"
+            v-model="email"
+            type="text"
+            autocomplete="off"
+            placeholder="e.g. hoge@domain.com"
+            @focus="resetError"
+            />
+          <ul class="validation-errors">
+            <li v-if="!validation.email.format">invalid email format</li>
+            <li v-if="!validation.email.required">empty email</li>
+          </ul>
+        </div>
+        <div class="form-item">
+          <label for="password">password</label>
+          <v-text-field
+            id="password"
+            v-model="password"
+            type="password"
+            autocomplete="off"
+            placeholder="e.g. xxxx"
+            @focus="resetError"
+            />
+          <ul class="validation-errors">
+            <li v-if="!validation.password.required">empty password</li>
+          </ul>
+        </div>
+        <div class="form-actions">
+          <v-btn
+            color="primary"
+            large
+            :disabled="disabledLoginAction"
+            @click="handleClick"
+          >
+            ログイン
+          </v-btn>
+          <p
+            v-if="progress"
+            class="login-progress"
+          >
+            ログイン中...
+          </p>
+          <p 
+            v-if="error"
+            class="login-error"
+          >
+            {{ error }}
+          </p>
+        </div>
+      </v-form>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import KbnButton from '@/components/atoms/KbnButton'
-const REGEX_EMAIL = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+const REGEX_EMAIL = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 const required = val => !!val.trim()
 export default {
   name: 'KbnLoginForm',
   
   components: {
-    KbnButton
   },
 
   props: {
@@ -158,6 +164,7 @@ ul li {
 }
 .validation-errors{
   height: 32px;
+  color: red;
 }
 .form-actions p {
   font-size: 0.5em;

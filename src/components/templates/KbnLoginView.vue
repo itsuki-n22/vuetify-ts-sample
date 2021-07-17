@@ -1,6 +1,6 @@
 <template>
-  <div class="login-view">
-    <p> Kanban-App </p>
+  <div class="login-view mt-5">
+    <h2> ログインフォーム </h2>
     <KbnLoginForm :onlogin="handleLogin" />
   </div>
 </template>
@@ -30,7 +30,12 @@ export default {
 
 <style scoped>
 .login-view {
-  width: 320px;
-  margin: auto;
+  width: 600px;
+  margin: 0 auto;
+  background: #eee;
+  padding: 25px;
+}
+h2 {
+  text-align: center;
 }
 </style>
