@@ -43,8 +43,13 @@ export default Vue.extend({
   
   methods: {
     logout(){
-      alert("logout")
-    }
+      return this.$store.dispatch('logout', this.$store.state.auth)
+        .then(() => {
+          this.$router.push({path: '/login'})
+        })
+        .catch(err => this.throwReject(err))
+    },
+    throwReject (err: any) { return Promise.reject(err) }
   }
 });
 </script>

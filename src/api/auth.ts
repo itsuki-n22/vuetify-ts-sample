@@ -9,5 +9,14 @@ export default {
           reject(new Error(err.response.data.message || err.message))
         })
     })
+  },
+  logout: (authInfo: any) => {
+    return new Promise((resolve, reject) => {
+      client.post('/auth/logout', authInfo)
+        .then((res: any) => resolve({message: res.data.message}))
+        .catch((err) => {
+          reject(new Error(err.response.data.message || err.message))
+        })
+    })
   }
 }

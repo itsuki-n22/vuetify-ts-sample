@@ -21,7 +21,7 @@ export default {
 //    throw new Error('REMOVE_TASK mutation should be implemented')
 //  },
 //
-//  [types.AUTH_LOGOUT] (state, payload) {
-//    throw new Error('AUTH_LOGOUT mutation should be implemented')
-//  }
+  [types.AUTH_LOGOUT] (state: any, payload: any) {
+    state.auth = payload
+  }
 }

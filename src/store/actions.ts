@@ -29,5 +29,12 @@ export default {
 //  logout: ({ commit }) => {
 //    throw new Error('logout action should be implemented')
 //  }
+  logout: async ({ commit }: any, authInfo: any) => {
+    return Auth.logout(authInfo)
+      .then(({ token, userId }: any) => {
+        commit(types.AUTH_LOGOUT, { token, userId })
+      })
+      .catch(err => { throw err })
+  },
 
 }

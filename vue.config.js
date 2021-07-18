@@ -14,9 +14,6 @@ module.exports = {
       const express = require('express');
 
       app.use(express.json({}))
-      app.get('/hoge', (req, res) => {
-        res.status(201).json({ message: "hogege" })
-      })
 
       app.post('/auth/login', (req, res) => {
         const { email, password } = req.body
@@ -26,6 +23,21 @@ module.exports = {
             res.status(401).json({ message: 'failed login !!!!'})
           } else {
             res.json({ userId: user.userId, token: user.token })
+          }
+        } else {
+          res.status(404).json({ message: 'ユーザーが登録されていません.'})
+        }
+      })
+
+      app.post('/auth/logout', (req, res) => {
+        const { userId, token } = req.body
+        const usersTmp = Object.keys(users).map(function(mail){ return users[mail] })
+        const user = usersTmp.filter( user => user.userId === userId && user.token === token )[0]
+        if (user) {
+          if (user.token !== token) {
+            res.status(401).json({ message: 'failed logout !!!!'})
+          } else {
+            res.json({ userId: null, token: null })
           }
         } else {
           res.status(404).json({ message: 'ユーザーが登録されていません.'})
