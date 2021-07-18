@@ -8,13 +8,6 @@ export default {
         commit(types.AUTH_LOGIN, { token, userId })
       })
       .catch(err => { throw err })
-
-    //try {
-    //  const { token, userId}: any = await Auth.login(authInfo)
-    //  commit: (types.AUTH_LOGIN, { token, userId })
-    //} catch (err) {
-    //  throw err
-    //}
   },
 
 //  fetchLists: ({ commit }) => {

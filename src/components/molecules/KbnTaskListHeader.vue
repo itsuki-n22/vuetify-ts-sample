@@ -1,10 +1,10 @@
 <template>
-  <v-toolbar dense flat color="#eee">
+  <v-toolbar dense flat color="primary">
     <v-toolbar-title>
       <slot />
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-icon @click="handleClick">mdi-plus</v-icon>
+    <v-icon color="white" @click="handleClick">mdi-plus</v-icon>
 
   </v-toolbar>
 </template>
@@ -19,4 +19,5 @@ export default {
 }
 </script>
 <style scoped>
+* {color: white}
 </style>

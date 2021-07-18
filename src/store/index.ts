@@ -19,7 +19,8 @@ const state = {
       {id: 3, title: "third action", description: "説明はこちら", status: 0},
     ],
     hoge: "33",
-  }
+  },
+
 }
 
 export default new Vuex.Store({
