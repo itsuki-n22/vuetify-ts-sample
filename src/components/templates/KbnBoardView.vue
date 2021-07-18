@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <h2> ボードページ </h2>
     <KbnBoardTask />
   </v-container>
 </template>
