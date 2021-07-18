@@ -1,8 +1,12 @@
 <template>
-  <div class="login-view mt-5">
-    <h2><v-icon>{{ this.accountIcon }}</v-icon> ログインフォーム </h2>
-    <KbnLoginForm :onlogin="handleLogin" />
-  </div>
+  <v-container>
+    <v-card elevation="2">
+      <div class="login-view mt-5">
+        <h2><v-icon>{{ this.accountIcon }}</v-icon> ログインフォーム </h2>
+        <KbnLoginForm :onlogin="handleLogin" />
+      </div>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -36,9 +40,7 @@ export default {
 
 <style scoped>
 .login-view {
-  width: 600px;
   margin: 0 auto;
-  background: #eee;
   padding: 25px;
 }
 h2 {
