@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import actions from "./actions"
-//import getters from "./getters"
+import getters from "./getters"
 import mutations from "./mutations"
 import createPersistedState from "vuex-persistedstate"
 
@@ -13,12 +13,17 @@ const state = {
     userId: null
   },
   board: {
-    lists: []
+    contents: [
+      {id: 1, title: "first action", description: "説明はこちら", status: 0},
+      {id: 2, title: "second action", description: "説明はこちら", status: 0},
+      {id: 3, title: "third action", description: "説明はこちら", status: 0},
+    ],
+    hoge: "33",
   }
 }
 
 export default new Vuex.Store({
-  //getters,
+  getters,
   actions,
   mutations,
   state,
