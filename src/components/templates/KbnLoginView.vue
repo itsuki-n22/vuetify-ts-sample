@@ -1,15 +1,21 @@
 <template>
   <div class="login-view mt-5">
-    <h2> ログインフォーム </h2>
+    <h2><v-icon>{{ this.accountIcon }}</v-icon> ログインフォーム </h2>
     <KbnLoginForm :onlogin="handleLogin" />
   </div>
 </template>
 
 <script>
+import { mdiAccount } from '@mdi/js'
 import KbnLoginForm from '@/components/molecules/KbnLoginForm.vue'
 
 export default {
   name: 'KbnLoginView',
+
+  data: () => ({
+    accountIcon: mdiAccount
+  }),
+
   components: {
     KbnLoginForm
   },
