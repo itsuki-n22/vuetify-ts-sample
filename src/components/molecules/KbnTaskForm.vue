@@ -3,7 +3,7 @@
     <v-card>
       <v-card-text>
         <v-form
-          ref="form"
+          ref="hoge"
           lazy-validation
         >
           <v-text-field
@@ -61,7 +61,7 @@ export default {
 
   computed: {
     titleValid: function () {
-      if (this.titleRules == true ){
+      if (this.title.length > 0 ){
         return true
       } else {
         return false

@@ -5,8 +5,7 @@
         <slot />
       </KbnTaskListHeader>
 
-      <KbnTaskCard v-for="list in lists" :key="list.id" :list="list">
-      </KbnTaskCard>
+      <KbnTaskCard v-for="list in lists" :key="list.id" :list="list" />
       <KbnTaskForm v-if="taskFormFlag" @toggle="toggleTaskForm" />
 
     </v-card>
