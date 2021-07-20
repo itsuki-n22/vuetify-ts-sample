@@ -36,7 +36,7 @@
             <v-spacer></v-spacer>
             <v-btn
               color="primary"
-              @click="dialog = !dialog"
+              @click="updateTask(list)"
             >
               保存
             </v-btn>
@@ -48,6 +48,7 @@
 </template>
 <script>
 import KbnBoardView from '@/components/templates/KbnBoardView.vue'
+import cloneDeep from 'lodash/cloneDeep'
 
 export default {
   name: "KbnTaskDetailModal",
@@ -61,12 +62,20 @@ export default {
     KbnBoardView 
   },
   mounted() {
-    this.list = this.$store.getters.selectList(Number(this.$route.params.id))
+    this.list = (this.$store.getters.selectList(Number(this.$route.params.id)))
+    this.list = cloneDeep(this.list)
   },
   watch: {
     dialog: function(){
-      this.$router.push("/")
+      this.$router.push("/h")
     },
+  },
+  methods: {
+    updateTask(task){
+      console.log("update")
+      this.$store.dispatch('updateTask', task)
+      this.dialog = !this.dialog
+    }
   }
 }
 </script>
