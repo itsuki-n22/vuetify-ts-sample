@@ -4,7 +4,11 @@ export default {
   [types.AUTH_LOGIN] (state: any, payload: any) {
     state.auth = payload
   },
-
+  addTask (state: any, payload: any) {
+    state.board.contents_count += 1
+    payload.id = state.board.contents_count
+    state.board.contents.push(payload)
+  },
 //  [types.FETCH_ALL_TASKLIST] (state, payload) {
 //    throw new Error('FETCH_ALL_TASKLIST mutation should be implemented')
 //  },

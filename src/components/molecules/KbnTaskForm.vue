@@ -51,6 +51,7 @@ export default {
       return false
     },
     createList(){
+      this.$store.commit('addTask', {id:10,title:"hoge",description:"foo", status:0})
       alert("create")
       return false
     },
