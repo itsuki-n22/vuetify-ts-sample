@@ -21,8 +21,11 @@ export default {
   },
 
   updateTask (state: any, payload: any) {
-    const list = state.board.contents.filter((obj: any) => obj.id !== payload.id)
-    state.board.contents = list
+    state.board.contents.some(function(obj: any, index: number) {
+     if (obj.id === payload.id) state.board.contents[index] = payload
+     console.log("mutation 100")
+     console.log(state.board.contents)
+    })
   },
 
   [types.AUTH_LOGOUT] (state: any, payload: any) {

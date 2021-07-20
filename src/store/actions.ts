@@ -18,8 +18,9 @@ export default {
     throw new Error('addTask action should be implemented')
   },
 
-  updateTask: async ({ commit }: any) => {
-    throw new Error('updateTask action should be implemented')
+  updateTask: async ({ commit }: any, task: any) => {
+    console.log("action")
+    commit('updateTask', task)
   },
 
   removeTask: async ({ commit }: any) => {

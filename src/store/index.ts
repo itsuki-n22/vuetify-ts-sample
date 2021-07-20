@@ -24,10 +24,10 @@ const state = {
 }
 
 export default new Vuex.Store({
-  getters,
-  actions,
-  mutations,
   state,
+  mutations,
+  actions,
+  getters,
   strict: process.env.NODE_ENV !== 'production',
   plugins: [createPersistedState()]
 })
