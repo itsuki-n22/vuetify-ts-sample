@@ -37,6 +37,8 @@
 <script>
 
 export default {
+  props: ['status'],
+
   data(){
     return {
       title: "",
@@ -47,12 +49,8 @@ export default {
   },
 
   methods: {
-    openTaskForm(){
-      return false
-    },
     createList(){
-      alert("create")
-      return false
+      this.$store.commit('addTask', {id: 0, title: this.title, description: "", status: this.status})
     },
     closeForm(event){
       this.$emit('toggle', event)

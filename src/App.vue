@@ -51,6 +51,7 @@ export default Vue.extend({
         .catch(err => this.throwReject(err))
     },
     throwReject (err: any) { return Promise.reject(err) }
-  }
+  },
+
 });
 </script>

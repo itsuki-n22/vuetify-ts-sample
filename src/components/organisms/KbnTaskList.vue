@@ -6,7 +6,7 @@
       </KbnTaskListHeader>
 
       <KbnTaskCard v-for="list in lists" :key="list.id" :list="list" />
-      <KbnTaskForm v-if="taskFormFlag" @toggle="toggleTaskForm" />
+      <KbnTaskForm v-if="taskFormFlag" @toggle="toggleTaskForm" :status="status" />
 
     </v-card>
   </v-container>
@@ -17,7 +17,7 @@ import KbnTaskCard from "@/components/molecules/KbnTaskCard.vue"
 import KbnTaskForm from "@/components/molecules/KbnTaskForm.vue"
 
 export default {
-  props: ['lists'],
+  props: ['lists', 'status'],
 
   data(){
     return { 

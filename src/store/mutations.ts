@@ -5,23 +5,31 @@ export default {
     state.auth = payload
   },
 
-//  [types.FETCH_ALL_TASKLIST] (state, payload) {
-//    throw new Error('FETCH_ALL_TASKLIST mutation should be implemented')
-//  },
-//
-//  [types.ADD_TASK] (state, payload) {
-//    throw new Error('ADD_TASK mutation should be implemented')
-//  },
-//
-//  [types.UPDATE_TASK] (state, payload) {
-//    throw new Error('UPDATE_TASK mutation should be implemented')
-//  },
-//
-//  [types.REMOVE_TASK] (state, payload) {
-//    throw new Error('REMOVE_TASK mutation should be implemented')
-//  },
-//
+  fetchList (state: any, payload: any) {
+    state.board.contents = payload
+  },
+
+  addTask (state: any, payload: any) {
+    state.board.contents_count += 1
+    payload.id = state.board.contents_count
+    state.board.contents.push(payload)
+  },
+
+  deleteTask (state: any, payload: any) {
+    const list = state.board.contents.filter((obj: any) => obj.id !== payload.id)
+    state.board.contents = list
+  },
+
+  updateTask (state: any, payload: any) {
+    const list = state.board.contents.filter((obj: any) => obj.id !== payload.id)
+    state.board.contents = list
+  },
+
   [types.AUTH_LOGOUT] (state: any, payload: any) {
     state.auth = payload
-  }
+  },
+
+  RESET_VUEX_STATE(state: any) {
+    window.localStorage.removeItem('vuex');
+  },
 }

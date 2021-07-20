@@ -61,7 +61,7 @@ export default {
     KbnBoardView 
   },
   mounted() {
-     this.list = this.$store.getters.selectList(1)
+    this.list = this.$store.getters.selectList(Number(this.$route.params.id))
   },
   watch: {
     dialog: function(){

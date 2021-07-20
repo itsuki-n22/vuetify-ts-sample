@@ -2,17 +2,17 @@
   <v-container>
     <v-row>
       <v-col class="col-xs-4">
-        <KbnTaskList :lists="this.$store.getters.freshList">
+        <KbnTaskList :lists="this.$store.getters.freshList" :status="0">
           TODO
         </KbnTaskList>
       </v-col>
       <v-col class="col-xs-4">
-        <KbnTaskList>
+        <KbnTaskList :lists="this.$store.getters.wipList" :status="1">
           WIP
         </KbnTaskList>
       </v-col>
       <v-col class="col-xs-4">
-        <KbnTaskList>
+        <KbnTaskList :lists="this.$store.getters.doneList" :status="2">
           DONE
         </KbnTaskList>
       </v-col>
@@ -23,18 +23,13 @@
 import KbnTaskList from "@/components/organisms/KbnTaskList.vue"
 
 export default {
-  computed: {
-    freshList() { return this.$store.state.freshList},
-    wipList() { return this.$store.state.wipList},
-    doneList() { return this.$store.state.doneList},
-  },
-  methods: {
-  },
   components: {
     KbnTaskList
+  },
+  mounted(){
+    console.log(this.$store.state)
   }
 }
-//import KbnBoard
 </script>
 <style scoped>
 </style>
