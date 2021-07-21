@@ -51,6 +51,7 @@ export default {
   methods: {
     createList(){
       this.$store.commit('addTask', {id: 0, title: this.title, description: "", status: this.status})
+      this.$refs.hoge.reset()
     },
     closeForm(event){
       this.$emit('toggle', event)

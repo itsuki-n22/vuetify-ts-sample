@@ -11,7 +11,7 @@
           WIP
         </KbnTaskList>
       </v-col>
-      <v-col cols="12" sm="4">
+      <v-col class="col-xs-4">
         <KbnTaskList :lists="doneList" :status="2">
           DONE
         </KbnTaskList>
