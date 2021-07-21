@@ -55,25 +55,26 @@ export default {
   data() {
     return {
       dialog: true,
-      list: {}
     }
   },
   components: {
     KbnBoardView 
-  },
-  mounted() {
-    this.list = (this.$store.getters.selectList(Number(this.$route.params.id)))
-    this.list = cloneDeep(this.list)
   },
   watch: {
     dialog: function(){
       this.$router.push("/h")
     },
   },
+  computed: {
+    list: function(){
+      let tmp = (this.$store.getters.selectList(Number(this.$route.params.id)))
+      return cloneDeep(tmp)
+    }
+  },
   methods: {
     updateTask(task){
       console.log("update")
-      this.$store.dispatch('updateTask', task)
+      this.$store.commit('updateTask', task)
       this.dialog = !this.dialog
     }
   }
