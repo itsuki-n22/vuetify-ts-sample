@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card elevation="1">
+    <v-card elevation="0" outlined>
       <KbnTaskListHeader @click="toggleTaskForm">
         <slot />
       </KbnTaskListHeader>

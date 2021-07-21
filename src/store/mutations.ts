@@ -1,4 +1,5 @@
 import * as types from './mutation-types'
+import Vue from 'vue'
 
 export default {
   [types.AUTH_LOGIN] (state: any, payload: any) {
@@ -13,8 +14,6 @@ export default {
     state.board.contents_count += 1
     payload.id = state.board.contents_count
     state.board.contents.push(payload)
-     console.log("add")
-     console.log(state.board.contents)
   },
 
   deleteTask (state: any, payload: any) {
@@ -24,10 +23,8 @@ export default {
 
   updateTask (state: any, payload: any) {
     state.board.contents.some(function(obj: any, index: number) {
-     if (obj.id === payload.id) state.board.contents[index] = payload
+     if (obj.id === payload.id) Vue.set(state.board.contents, index, payload)
     })
-     console.log("mutation 100")
-     console.log(state.board.contents)
   },
 
   [types.AUTH_LOGOUT] (state: any, payload: any) {

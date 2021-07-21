@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="d-flex flex-row" elevation="1">
+    <v-card class="d-flex flex-row ma-2" elevation="1">
       <v-card-text @click="toDetail(list.id)">
         {{ list.title }}
       </v-card-text>

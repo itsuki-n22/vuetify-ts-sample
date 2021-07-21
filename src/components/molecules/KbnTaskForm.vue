@@ -60,7 +60,7 @@ export default {
 
   computed: {
     titleValid: function () {
-      if (this.title.length > 0 ){
+      if (this.title && this.title.length > 0 ){
         return true
       } else {
         return false

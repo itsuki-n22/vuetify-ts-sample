@@ -73,7 +73,6 @@ export default {
   },
   methods: {
     updateTask(task){
-      console.log("update")
       this.$store.commit('updateTask', task)
       this.dialog = !this.dialog
     }
