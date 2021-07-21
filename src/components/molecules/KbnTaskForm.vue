@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card>
+    <v-card elevation="1">
       <v-card-text>
         <v-form
           ref="hoge"

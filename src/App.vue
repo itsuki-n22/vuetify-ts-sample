@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="" dark>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -11,7 +11,7 @@
           width="40"
         />
 
-        <h1>Kanban App</h1>
+        <h1>vuex練習</h1>
       </div>
 
       <v-spacer></v-spacer>
