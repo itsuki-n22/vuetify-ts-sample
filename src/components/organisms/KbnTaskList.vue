@@ -5,16 +5,18 @@
         <slot />
       </KbnTaskListHeader>
 
-      <KbnTaskCard v-for="list in lists" :key="list.id" :list="list" />
+      <Draggable :options="{group: 'ITEMS'}" :class="groupType">
+        <KbnTaskCard v-for="list in lists" :key="list.id" :list="list"  />
+      </Draggable>
       <KbnTaskForm v-if="taskFormFlag" @toggle="toggleTaskForm" :status="status" />
-
     </v-card>
   </v-container>
 </template>
 <script>
 import KbnTaskListHeader from "@/components/molecules/KbnTaskListHeader.vue"
-import KbnTaskCard from "@/components/molecules/KbnTaskCard.vue"
-import KbnTaskForm from "@/components/molecules/KbnTaskForm.vue"
+import KbnTaskCard from "@/components/molecles/KbnTaskCard.vue"
+import KbnTaskForm from "@/components/molecles/KbnTaskForm.vue"
+import Draggable from 'vuedraggable'
 
 export default {
   props: ['lists', 'status'],
@@ -25,10 +27,17 @@ export default {
     }
   },
 
+  computed: {
+    groupType(){
+      return "group" + this.status
+    }
+  },
+
   components: {
     KbnTaskListHeader,
     KbnTaskCard,
-    KbnTaskForm
+    KbnTaskForm,
+    Draggable
   },
 
   methods: {

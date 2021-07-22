@@ -16,6 +16,7 @@
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
+    "vuedraggable": "^2.24.3",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0",
     "vuex-persistedstate": "^4.0.0-beta.3"
@@ -25,6 +26,7 @@
     "@types/chai": "^4.2.11",
     "@types/lodash": "^4.14.171",
     "@types/mocha": "^5.2.4",
+    "@types/vuedraggable": "^2.24.0",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
