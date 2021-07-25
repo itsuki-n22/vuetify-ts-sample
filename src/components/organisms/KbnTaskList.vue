@@ -14,8 +14,8 @@
 </template>
 <script>
 import KbnTaskListHeader from "@/components/molecules/KbnTaskListHeader.vue"
-import KbnTaskCard from "@/components/molecles/KbnTaskCard.vue"
-import KbnTaskForm from "@/components/molecles/KbnTaskForm.vue"
+import KbnTaskCard from "@/components/molecules/KbnTaskCard.vue"
+import KbnTaskForm from "@/components/molecules/KbnTaskForm.vue"
 import Draggable from 'vuedraggable'
 
 export default {

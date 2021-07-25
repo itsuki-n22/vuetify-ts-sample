@@ -34,6 +34,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import client from './api/client'
+import {mapState} from 'vuex'
 
 export default Vue.extend({
   name: "App",
@@ -44,7 +46,7 @@ export default Vue.extend({
   
   methods: {
     logout(){
-      return this.$store.dispatch('logout', this.$store.state.auth)
+      return this.$store.dispatch('logout', {auth: {id: this.$store.state.auth.userId}})
         .then(() => {
           this.$router.push({path: '/login'})
         })
@@ -52,6 +54,13 @@ export default Vue.extend({
     },
     throwReject (err: any) { return Promise.reject(err) }
   },
+
+  mounted(){
+    client.get('/api/v1/auth/get_csrf_token')
+      .then((res: any) => {
+        client.defaults.headers.common['X-CSRF-Token'] = res.headers['x-csrf-token']
+      })
+  }
 
 });
 </script>
