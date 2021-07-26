@@ -10,6 +10,10 @@ export default {
   name: "KbnBoardView",
   components: {
     KbnBoardTask
+  },
+
+  mounted(){
+    this.$store.dispatch('fetchLists', {params: {list: {user_id: 1}}})
   }
 
 }

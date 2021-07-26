@@ -4,14 +4,19 @@ import { Auth, Task, List } from '../api'
 export default {
   login: async ({ commit }: any, authInfo: any) => {
     return Auth.login(authInfo)
-      .then(({ token, userId }: any) => {
-        commit(types.AUTH_LOGIN, { token, userId })
+      .then(({ userId }: any) => {
+        commit(types.AUTH_LOGIN, { userId })
       })
       .catch(err => { throw err })
   },
 
-  fetchLists: async ({ commit }: any) => {
-    throw new Error('fetchLists action should be implemented')
+  fetchLists: async ({ commit }: any, info: any) => {
+    return List.fetchLists(info)
+      .then(({ lists }: any) => {
+        commit('fetchLists', lists )
+      })
+      .catch(err => { throw err })
+
   },
 
   addTask: async ({ commit }: any) => {

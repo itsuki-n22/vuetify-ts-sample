@@ -14,9 +14,6 @@ const state = {
   board: {
     contents_count: 3,
     contents: [
-      {id: 1, title: "first action", description: "説明はこちら", status: 0},
-      {id: 2, title: "second action", description: "説明はこちら", status: 0},
-      {id: 3, title: "third action", description: "説明はこちら", status: 0},
     ],
   },
 

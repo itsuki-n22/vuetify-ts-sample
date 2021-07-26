@@ -6,7 +6,7 @@ export default {
     state.auth = payload
   },
 
-  fetchList (state: any, payload: any) {
+  fetchLists (state: any, payload: any) {
     state.board.contents = payload
   },
 
