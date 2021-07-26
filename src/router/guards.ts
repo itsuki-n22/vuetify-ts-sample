@@ -2,7 +2,7 @@ import store from '../store'
 
 export const authorizeToken = (to: any, from: any, next: any) => {
   if (to.matched.some( (record: any) => record.meta.requiresAuth)) {
-    if (!store.state.auth || !store.state.auth.token) {
+    if (!store.state.auth || !store.state.auth.userId) {
       next({path: '/login'})
     } else {
       next()

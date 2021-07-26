@@ -6,7 +6,7 @@ export default {
       client.post('/api/v1/auth/login', authInfo)
         .then((res: any) => {
           client.defaults.headers.common['X-CSRF-Token'] = res.headers['x-csrf-token']
-          return resolve({token: res.data.token, userId: res.data.userId})
+          return resolve({userId: res.data.userId})
         })
         .catch((err) => {
           reject(new Error(err.response.data.message || err.message))

@@ -17,7 +17,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        v-if="this.$store.state.auth.token"
+        v-if="this.$store.state.auth.userId"
         @click="logout"
         text
       >
