@@ -5,6 +5,7 @@
 </template>
 <script>
 import KbnBoardTask from '@/components/organisms/KbnBoardTask.vue'
+import {mapState} from 'vuex'
 
 export default {
   name: "KbnBoardView",
@@ -13,9 +14,8 @@ export default {
   },
 
   mounted(){
-    this.$store.dispatch('fetchLists', {params: {list: {user_id: 1}}})
-  }
-
+    this.$store.dispatch('fetchLists')
+  },
 }
 </script>
 <style scoped>

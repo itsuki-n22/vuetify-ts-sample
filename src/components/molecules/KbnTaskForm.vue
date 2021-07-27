@@ -35,6 +35,7 @@
   </v-container>
 </template>
 <script>
+import { mapState } from 'vuex'
 
 export default {
   props: ['status'],
@@ -50,7 +51,7 @@ export default {
 
   methods: {
     createList(){
-      this.$store.dispatch('addList', {id: null, title: this.title, description: "", status: this.status, user_id: 1})
+      this.$store.dispatch('addList', {id: null, title: this.title, description: "", status: this.status})
       this.$refs.hoge.reset()
     },
     closeForm(event){

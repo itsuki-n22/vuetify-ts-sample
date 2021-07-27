@@ -2,17 +2,17 @@
   <v-container>
     <v-row>
       <v-col cols="12" sm="4">
-        <KbnTaskList :lists="freshList" :status="0">
+        <KbnTaskList :lists="freshList" status="todo">
           TODO
         </KbnTaskList>
       </v-col>
       <v-col cols="12" sm="4">
-        <KbnTaskList :lists="wipList" :status="1">
+        <KbnTaskList :lists="wipList" status="wip">
           WIP
         </KbnTaskList>
       </v-col>
       <v-col class="col-xs-4">
-        <KbnTaskList :lists="doneList" :status="2">
+        <KbnTaskList :lists="doneList" status="done">
           DONE
         </KbnTaskList>
       </v-col>
