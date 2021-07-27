@@ -1,5 +1,5 @@
 import * as types from './mutation-types'
-import { Auth, Task, List } from '../api'
+import { Auth, List } from '../api'
 
 export default {
   login: async ({ commit }: any, authInfo: any) => {
@@ -19,17 +19,28 @@ export default {
 
   },
 
-  addTask: async ({ commit }: any) => {
-    throw new Error('addTask action should be implemented')
+  addList: async ({ commit }: any, info: any) => {
+    return List.addList(info)
+      .then(( list : any) => {
+        commit('addList', list )
+      })
+      .catch(err => { throw err })
   },
 
-  updateTask: async ({ commit }: any, task: any) => {
-    console.log("action")
-    commit('updateTask', task)
+  updateList: async ({ commit }: any, info: any) => {
+    return List.updateList(info)
+      .then(( list : any) => {
+        commit('updateList', list)
+      })
+      .catch(err => { throw err })
   },
 
-  removeTask: async ({ commit }: any) => {
-    throw new Error('removeTask action should be implemented')
+  deleteList: async ({ commit }: any, info: any) => {
+    return List.deleteList(info)
+      .then((list: any) => {
+        commit('deleteList', list)
+      })
+      .catch(err => { throw err })
   },
 
   logout: async ({ commit }: any, authInfo: any) => {

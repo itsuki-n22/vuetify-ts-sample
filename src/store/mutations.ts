@@ -10,18 +10,16 @@ export default {
     state.board.contents = payload
   },
 
-  addTask (state: any, payload: any) {
-    state.board.contents_count += 1
-    payload.id = state.board.contents_count
+  addList (state: any, payload: any) {
     state.board.contents.push(payload)
   },
 
-  deleteTask (state: any, payload: any) {
+  deleteList (state: any, payload: any) {
     const list = state.board.contents.filter((obj: any) => obj.id !== payload.id)
     state.board.contents = list
   },
 
-  updateTask (state: any, payload: any) {
+  updateList (state: any, payload: any) {
     state.board.contents.some(function(obj: any, index: number) {
      if (obj.id === payload.id) Vue.set(state.board.contents, index, payload)
     })

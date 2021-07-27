@@ -5,7 +5,7 @@
         {{ list.title }}
       </v-card-text>
       <v-card-actions>
-        <v-icon @click="deleteTask(list)">mdi-close</v-icon>
+        <v-icon @click="deleteList(list)">mdi-close</v-icon>
       </v-card-actions>
     </v-card>
   </v-container>
@@ -19,8 +19,8 @@ export default {
   },
 
   methods: {
-    deleteTask(list){
-      this.$store.commit('deleteTask',list)
+    deleteList(list){
+      this.$store.dispatch('deleteList',list)
     },
     toDetail(id){
       this.$router.push("/tasks/" + id)

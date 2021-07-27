@@ -28,7 +28,6 @@ export default {
   },
   computed: {
     freshList(){ 
-      console.log( this.$store.getters.freshList )
       return this.$store.getters.freshList 
       },
     wipList(){ return this.$store.getters.wipList },

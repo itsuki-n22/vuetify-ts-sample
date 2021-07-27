@@ -36,7 +36,7 @@
             <v-spacer></v-spacer>
             <v-btn
               color="primary"
-              @click="updateTask(list)"
+              @click="updateList(list)"
             >
               保存
             </v-btn>
@@ -62,7 +62,7 @@ export default {
   },
   watch: {
     dialog: function(){
-      this.$router.push("/h")
+      this.$router.push("/")
     },
   },
   computed: {
@@ -72,8 +72,8 @@ export default {
     }
   },
   methods: {
-    updateTask(task){
-      this.$store.commit('updateTask', task)
+    updateList(list){
+      this.$store.dispatch('updateList', list)
       this.dialog = !this.dialog
     }
   }

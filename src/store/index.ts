@@ -12,7 +12,6 @@ const state = {
     userId: null
   },
   board: {
-    contents_count: 3,
     contents: [
     ],
   },

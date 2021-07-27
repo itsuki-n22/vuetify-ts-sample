@@ -50,7 +50,7 @@ export default {
 
   methods: {
     createList(){
-      this.$store.commit('addTask', {id: 0, title: this.title, description: "", status: this.status})
+      this.$store.dispatch('addList', {id: null, title: this.title, description: "", status: this.status, user_id: 1})
       this.$refs.hoge.reset()
     },
     closeForm(event){
