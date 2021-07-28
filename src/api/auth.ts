@@ -5,7 +5,6 @@ export default {
     return new Promise((resolve, reject) => {
       client.post('/api/v1/auth/login', authInfo)
         .then((res: any) => {
-          client.defaults.headers.common['X-CSRF-Token'] = res.headers['x-csrf-token']
           return resolve({userId: res.data.userId})
         })
         .catch((err) => {
